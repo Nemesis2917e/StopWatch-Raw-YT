@@ -48,3 +48,5 @@ MakesThisDamnThingWork();
 
 
 }
+
+window.open(rob.html);
