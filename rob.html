@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roblox Rewards</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-purple-700 via-indigo-700 to-blue-600 min-h-screen flex flex-col items-center justify-center text-white font-sans m-5">
+
+  <!-- Hero Section -->
+  <div class="text-center max-w-2xl">
+    <h1 class="text-4xl md:text-5xl font-extrabold drop-shadow-lg mb-4">
+      🎁 Roblox Reward Hunt
+    </h1>
+    <p class="text-lg opacity-90 mb-6">
+      Complete the tasks below to unlock hidden Roblox redeem codes.<br>
+      Only the first <span class="font-bold text-yellow-300">5000</span> redeemers will be rewarded!
+    </p>
+  </div>
+
+  <!-- Tasks Section -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-2xl mb-10">
+    <button onclick="completeTask(1);work('https://play.google.com/store/apps/details?id=com.nemesis.cardmemory');" id="task1" class="p-4 bg-yellow-500 rounded-2xl shadow-lg hover:scale-105 transition font-semibold">
+      🎮 Download & Play Game (5 mins + 5⭐ Review)
+    </button>
+
+    <button onclick="completeTask(2);work('https://youtube.com/@forgebytetech?si=pvpUfG5jLOsmIbt8');" id="task2" class="p-4 bg-red-500 rounded-2xl shadow-lg hover:scale-105 transition font-semibold">
+      📺 Subscribe to Channel
+    </button>
+
+    <button onclick="completeTask(3);work('https://youtu.be/0XVA4iDluPU');" id="task3" class="p-4 bg-pink-500 rounded-2xl shadow-lg hover:scale-105 transition font-semibold">
+      ▶️ Watch Full Video #1
+    </button>
+
+    <button onclick="completeTask(4);work('https://youtu.be/eAYkKuh14G8');" id="task4" class="p-4 bg-green-500 rounded-2xl shadow-lg hover:scale-105 transition font-semibold">
+      ▶️ Watch Full Video #2
+    </button>
+
+    <button onclick="completeTask(5)" id="task5" class="p-4 bg-indigo-500 rounded-2xl shadow-lg hover:scale-105 transition font-semibold col-span-1 md:col-span-2">
+      🔑 Unlock Redeem Codes
+    </button>
+  </div>
+
+  <!-- Hidden Redeem Codes -->
+  <div id="codes" class="hidden text-center bg-white/10 backdrop-blur-lg rounded-2xl p-6 shadow-lg max-w-xl">
+    <h2 class="text-2xl font-bold mb-4">✨ Your Roblox Redeem Codes</h2>
+    <ul class="space-y-2 text-yellow-300 font-mono text-lg">
+      <li>RBX-9F3H-27KQ</li>
+      <li>RBX-7HD2-64PL</li>
+      <li>RBX-2MD8-92ZT</li>
+      <li>RBX-6KP9-15XR</li>
+      <li>RBX-1QF4-83LV</li>
+    </ul>
+    <p class="mt-4 text-sm text-gray-200 italic">
+      ⚡ Codes valid only for the first 5000 redeemers after completing all tasks.
+    </p>
+  </div>
+
+  <!-- Script -->
+  <script>
+    let completed = {};
+
+    function completeTask(id) {
+      completed[id] = true;
+      document.getElementById("task" + id).classList.add("opacity-60", "cursor-not-allowed");
+      document.getElementById("task" + id).disabled = true;
+
+      // Check if all tasks done
+      if ([1,2,3,4,5].every(t => completed[t])) {
+        document.getElementById("codes").classList.remove("hidden");
+      }
+    }
+  
+  function work(link) {
+    
+    // Open a link in a new tab
+window.open(link , "_blank");
+    
+  }
+  
+  
+  </script>
+
+</body>
+</html>
